@@ -1,0 +1,19 @@
+{
+    auto_https off
+}
+
+http://mail.kindergarten.test {
+    reverse_proxy 127.0.0.1:8025
+}
+
+http://kindergarten.test {
+    reverse_proxy 127.0.0.1:5173
+}
+
+http://zitadel.kindergarten.test {
+    reverse_proxy 127.0.0.1:9412
+}
+
+http://db-web.kindergarten.test {
+    reverse_proxy 127.0.0.1:9090
+}
