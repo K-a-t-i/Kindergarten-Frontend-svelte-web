@@ -13,7 +13,7 @@
   }
 
   function goToSecondPage() {
-    goto('/second-page');
+    goto('/lend');
   }
 
   let name = $page.data.session?.user?.name;
