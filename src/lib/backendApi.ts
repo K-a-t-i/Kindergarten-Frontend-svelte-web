@@ -13,3 +13,8 @@ export async function fetchBooks(): Promise<Book[]> {
     .then(res => res.json())
     .then(books => books.slice(0,1000));
 }
+
+export async function fetchBook(bookId: number): Promise<Book> {
+  return await fetch(`https://kindergarten-svelte.ey.r.appspot.com/book/${bookId}`)
+    .then(res => res.json());
+}

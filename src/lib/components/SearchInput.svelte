@@ -38,11 +38,11 @@
 </style>
 
 <script lang="ts">
-	import { Search } from 'lucide-svelte';
-	import { dateToString } from '$lib/utils';
-	import { type Book } from '$lib/backendApi';
+  import { Search } from 'lucide-svelte';
+  import { dateToString } from '$lib/utils';
+  import { type Book } from '$lib/backendApi';
 
-	export let placeholder = '';
+  export let placeholder = '';
 	export let items: Book[] = [];
 
 	let searchText = '';
@@ -61,12 +61,15 @@
 			<p>No results found.</p>
 		{/if}
 		{#each results as book}
-			<div class="border-b-2 border-theme-gray py-4 book-grid">
+      <a href={`/books/${book.bookId}`}>
+        <div class="border-b-2 border-theme-gray py-4 book-grid">
 				<p class="bold title">{book.title}</p>
 				<p class="pages">Pages: {book.numberPages}</p>
 				<p class="date">Published: {dateToString(new Date(book.publicationDate))}</p>
 				<p class="isbn">ISBN: {book.isbn13}</p>
+          <p>{book.bookId}</p>
 			</div>
+      </a>
 		{/each}
 	</div>
 {/if}
