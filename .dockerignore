@@ -6,7 +6,7 @@ Dockerfile
 README.md
 .npmrc
 .prettierrc
-.eslintrc.cjs
+.eslintrc_old.cjs
 .graphqlrc
 .editorconfig
 .svelte-kit
