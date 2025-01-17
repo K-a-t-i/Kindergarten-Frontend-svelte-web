@@ -14,6 +14,7 @@
   $: endTimeString = endTime.toISOString().split('T')[0];
 
   function onSubmit(event) {
+    event.preventDefault();
     console.log(event);
   }
 </script>
@@ -21,10 +22,12 @@
 <main>
   <h1>{$page.data.book.title}</h1>
   <p>This is the second page.</p>
-  <input type="date"
-    value={startTimeString}
-    min={startTimeString}
-    max={endTimeString}
-    on:submit={onSubmit} />
+  <form on:submit={onSubmit}>
+    <input type="date"
+           value={startTimeString}
+           min={startTimeString}
+           max={endTimeString} />
+    <button>Lend book</button>
+  </form>
   <button on:click={goBack}>Go Back to Main Page</button>
 </main>
