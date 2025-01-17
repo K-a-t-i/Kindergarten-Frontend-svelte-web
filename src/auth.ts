@@ -1,16 +1,16 @@
 import ZitadelProvider from "@auth/core/providers/zitadel";
 import { SvelteKitAuth } from "@auth/sveltekit";
 import type { JwtCallbackParams, Metadata, SessionParams } from "./types/auth";
-import { env } from '$env/dynamic/private';
+import { env } from '$env/dynamic/public';
 
 // Define Zitadel and OAuth configuration constants
-const ISSUER_URL = env.Environment == "Vercel_Production"
+const ISSUER_URL = env.PUBLIC_Environment == "Vercel_Production"
   ? "https://kindergarten-zmfpl7.us1.zitadel.cloud"
   : "http://zitadel.kindergarten.test";
 const CLIENT_ID = "292201069776322514";
 const CLIENT_SECRET = "VvkVhU8NVbtm0ouITzPfQKfCwbKvqbGDYotgdbkUNtWM0S2XAgj5H3lxP56EaslW"; // Ensure this is correctly set
 const SCOPE = "openid profile email";
-const POST_LOGOUT_REDIRECT_URI = env.Environment == "Vercel_Production"
+const POST_LOGOUT_REDIRECT_URI = env.PUBLIC_Environment == "Vercel_Production"
   ? "https://kindergarten-frontend-svelte.vercel.app"
   : "http://kindergarten.test";
 const RESPONSE_TYPE = "code";

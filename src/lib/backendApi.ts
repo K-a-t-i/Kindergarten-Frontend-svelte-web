@@ -1,4 +1,4 @@
-import { env } from '$env/dynamic/private';
+import { env } from '$env/dynamic/public';
 
 export interface Book {
   bookId: number;
@@ -10,7 +10,7 @@ export interface Book {
   publisherID: number;
 }
 
-export const API_URL = env.Environment == "Vercel_Production"
+export const API_URL = env.PUBLIC_Environment == "Vercel_Production"
   ? "https://kindergarten-svelte.ey.r.appspot.com"
   : "http://localhost:8081";
 
